@@ -5,18 +5,39 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
+    <Filter Include="Source Files\Program">
+      <UniqueIdentifier>{3bc2f004-06c5-4232-8cdf-19960f28ccd9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\level.cpp">
+      <Filter>Source Files\Program</Filter>
+    </ClCompile>
+    <ClCompile Include="src\level_editor.cpp">
+      <Filter>Source Files\Program</Filter>
+    </ClCompile>
     <ClCompile Include="src\program_manager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Program</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game.cpp">
+      <Filter>Source Files\Program</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\level_editor.h">
+      <Filter>Source Files\Program</Filter>
+    </ClInclude>
+    <ClInclude Include="src\level.h">
+      <Filter>Source Files\Program</Filter>
+    </ClInclude>
     <ClInclude Include="src\program_manager.h">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Program</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game.h">
+      <Filter>Source Files\Program</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

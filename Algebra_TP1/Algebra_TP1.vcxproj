@@ -155,10 +155,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\game.cpp" />
+    <ClCompile Include="src\level.cpp" />
+    <ClCompile Include="src\level_editor.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\program_manager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\game.h" />
+    <ClInclude Include="src\level.h" />
+    <ClInclude Include="src\level_editor.h" />
     <ClInclude Include="src\program_manager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

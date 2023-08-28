@@ -2,6 +2,9 @@
 
 #include "raylib.h"
 
+#include "level_editor.h"
+#include "game.h"
+
 namespace Program {
 	// Private
 	static const int screenWidth = 1024;
@@ -11,43 +14,19 @@ namespace Program {
 
 	static ProgramState currentState;
 
-	static void inputController();
-	static void updateDraw();
-	static void updatePlay();
 	static void initState(ProgramState state);
 	static void update();
 	static void uninit();
 	static void init();
 
-	void inputController() {
-		bool switcher = static_cast<bool>(currentState);
-		if (IsKeyPressed(KEY_Q)) {
-			currentState = static_cast<ProgramState>(!switcher);
-		}
-	}
-
-	void updateDraw() {
-		inputController();
-		BeginDrawing();
-			ClearBackground(BLACK);
-			DrawText("Drawing!", 420, 350, 40, BLUE);
-		EndDrawing();
-	}
-
-	void updatePlay() {
-		inputController();
-		BeginDrawing();
-			ClearBackground(BLACK);
-			DrawText("Playing!", 420, 350, 40, GREEN);
-		EndDrawing();
-	}
-
 	void initState(ProgramState state) {
 		switch (state)
 		{
 		case ProgramState::DRAW:
+			Editor::init();
 			break;
 		case ProgramState::PLAY:
+			Game::init();
 			break;
 		default:
 			break;
@@ -59,10 +38,10 @@ namespace Program {
 			switch (currentState)
 			{
 			case ProgramState::DRAW:
-				updateDraw();
+				Editor::update();
 				break;
 			case ProgramState::PLAY:
-				updatePlay();
+				Game::update();
 				break;
 			default:
 				break;
