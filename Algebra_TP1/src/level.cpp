@@ -2,6 +2,8 @@
 
 #include <list>
 
+#include "collision_manager.h"
+
 namespace Level {
 	vector<vector<Vector2>> shapes;
 
@@ -18,6 +20,16 @@ namespace Level {
 	}
 
 	// Public
+	bool checkCollisions(Vector2 playerPosition) {
+		bool colliding = false;
+		for (int i = 0; i < shapes.size(); i++) {
+			if (Collision::pointPolygon(playerPosition, shapes[i])) {
+				colliding = true;
+			}
+		}
+		return colliding;
+	}
+
 	void addShape(vector<Vector2> shape) {
 		shapes.push_back(shape);
 	}

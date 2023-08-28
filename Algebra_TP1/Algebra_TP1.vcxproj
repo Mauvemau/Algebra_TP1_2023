@@ -155,6 +155,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\collision_manager.cpp" />
     <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\level.cpp" />
     <ClCompile Include="src\level_editor.cpp" />
@@ -162,6 +163,7 @@
     <ClCompile Include="src\program_manager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\collision_manager.h" />
     <ClInclude Include="src\game.h" />
     <ClInclude Include="src\level.h" />
     <ClInclude Include="src\level_editor.h" />

@@ -25,6 +25,9 @@
     <ClCompile Include="src\game.cpp">
       <Filter>Source Files\Program</Filter>
     </ClCompile>
+    <ClCompile Include="src\collision_manager.cpp">
+      <Filter>Source Files\Program</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\level_editor.h">
@@ -37,6 +40,9 @@
       <Filter>Source Files\Program</Filter>
     </ClInclude>
     <ClInclude Include="src\game.h">
+      <Filter>Source Files\Program</Filter>
+    </ClInclude>
+    <ClInclude Include="src\collision_manager.h">
       <Filter>Source Files\Program</Filter>
     </ClInclude>
   </ItemGroup>

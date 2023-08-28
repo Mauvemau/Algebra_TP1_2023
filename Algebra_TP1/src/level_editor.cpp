@@ -25,8 +25,9 @@ namespace Editor {
             DrawText("[B] para borrar la forma actual.", 10, 70, 20, RAYWHITE);
             DrawText("[C] para borrar todo.", 10, 100, 20, RAYWHITE);
             DrawText("[Q] para entrar en modo juego.", 10, 130, 20, RAYWHITE);
+            DrawText("[ESC] para cerrar el programa.", 10, 160, 20, RAYWHITE);
             
-            for (int i = 0; i < currentShape.size(); i++)
+            for (unsigned int i = 0; i < currentShape.size(); i++)
             {
                 if (currentShape.size() > 1  && i < currentShape.size() - 1) {
                     DrawLineV(currentShape[i], currentShape[i + 1], BLUE);
@@ -43,8 +44,10 @@ namespace Editor {
             currentShape.push_back(GetMousePosition());
         }
         if (IsMouseButtonPressed(MOUSE_RIGHT_BUTTON)) {
-            Level::addShape(currentShape);
-            currentShape.clear();
+            if (currentShape.size() > 2) {
+                Level::addShape(currentShape);
+                currentShape.clear();
+            }
         }
         if (IsKeyPressed(KEY_B)) {
             currentShape.clear();
