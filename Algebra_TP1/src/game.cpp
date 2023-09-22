@@ -11,6 +11,7 @@ namespace Game {
 	struct Player {
 		Vector2 position;
 		float speed;
+		float size;
 	};
 
 	Player player;
@@ -26,7 +27,7 @@ namespace Game {
 			DrawText("[ESC] para cerrar el programa.", 10, 70, 20, RAYWHITE);
 			Level::draw();
 
-			Level::checkCollisions(player.position) ? DrawCircleV(player.position, 20, GREEN) : DrawCircleV(player.position, 20, RED);
+			Level::checkCollisions(player.position) ? DrawCircleV(player.position, player.size, GREEN) : DrawCircleV(player.position, player.size, RED);
 		EndDrawing();
 	}
 
@@ -60,5 +61,6 @@ namespace Game {
 		DisableCursor();
 		player.position = { (GetScreenWidth() * .5f), (GetScreenHeight() * .5f) };
 		player.speed = 250.0f;
+		player.size = 10.0f;
 	}
 }
