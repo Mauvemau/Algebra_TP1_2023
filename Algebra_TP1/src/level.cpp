@@ -7,9 +7,9 @@
 namespace Level {
 	vector<vector<Vector2>> shapes;
 
-	static void drawShape(vector<Vector2> shape);
+	static void DrawShape(vector<Vector2> shape);
 
-	void drawShape(vector<Vector2> shape) {
+	void DrawShape(vector<Vector2> shape) {
 		for (int i = 0; i < static_cast<int>(shape.size()); i++)
 		{
 			if (i < static_cast<int>(shape.size()) - 1) {
@@ -20,28 +20,28 @@ namespace Level {
 	}
 
 	// Public
-	bool checkCollisions(Vector2 playerPosition) {
+	bool CheckCollisions(Vector2 playerPosition) {
 		bool colliding = false;
 		for (int i = 0; i < static_cast<int>(shapes.size()); i++) {
-			if (Collision::pointInPolygonWinding(playerPosition, shapes[i])) {
+			if (Collision::PointInPolygonWinding(playerPosition, shapes[i])) {
 				colliding = true;
 			}
 		}
 		return colliding;
 	}
 
-	void addShape(vector<Vector2> shape) {
+	void AddShape(vector<Vector2> shape) {
 		shapes.push_back(shape);
 	}
 
-	void wipe() {
+	void Wipe() {
 		shapes.clear();
 	}
 
-	void draw() {
+	void Draw() {
 		if (!shapes.empty()) {
 			for (int i = 0; i < static_cast<int>(shapes.size()); i++) {
-				drawShape(shapes[i]);
+				DrawShape(shapes[i]);
 			}
 		}
 	}

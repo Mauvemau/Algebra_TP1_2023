@@ -3,8 +3,10 @@
 namespace Collision {
     // https://en.wikipedia.org/wiki/Point_in_polygon
 
+    int IsLeft(Vector2 P0, Vector2 P1, Vector2 P2);
+
     // Fuente: http://jeffreythompson.org/collision-detection/poly-point.php 
-    bool pointInPolygon(Vector2 point, vector<Vector2> poly) {
+    bool PointInPolygon(Vector2 point, vector<Vector2> poly) {
         bool collision = false;
         // Recorremos cada uno de los vertices + el que le siga.
         int next = 0;
@@ -26,12 +28,12 @@ namespace Collision {
         return collision;
     }
 
-    int isLeft(Vector2 P0, Vector2 P1, Vector2 P2) {
-        return (int)((P1.x - P0.x) * (P2.y - P0.y) -
-        (P2.x - P0.x) * (P1.y - P0.y));
+    int IsLeft(Vector2 P0, Vector2 P1, Vector2 P2) {
+        return static_cast<int>((P1.x - P0.x) * (P2.y - P0.y) -
+                                (P2.x - P0.x) * (P1.y - P0.y));
     }
 
-    bool pointInPolygonWinding(Vector2 point, const vector<Vector2>& poly) {
+    bool PointInPolygonWinding(Vector2 point, const vector<Vector2>& poly) {
         int wn = 0;
         int n = poly.size();
 
@@ -41,12 +43,12 @@ namespace Collision {
 
             if (v0.y <= point.y) {
                 if (v1.y > point.y) {
-                    if (isLeft(v0, v1, point) > 0)
+                    if (IsLeft(v0, v1, point) > 0)
                         ++wn;
                 }
             } else {
                 if (v1.y <= point.y) {
-                    if (isLeft(v0, v1, point) < 0)
+                    if (IsLeft(v0, v1, point) < 0)
                         --wn;
                 }
             }

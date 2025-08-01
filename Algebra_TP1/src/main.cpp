@@ -2,7 +2,7 @@
 
 int main(void)
 {
-    Program::start();
+    Program::Start();
 
     return 0;
 }

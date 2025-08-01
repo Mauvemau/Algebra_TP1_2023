@@ -16,24 +16,24 @@ namespace Game {
 
 	Player player;
 
-	static void draw();
-	static void handleControls();
+	static void Draw();
+	static void HandleControls();
 
-	void draw() {
+	void Draw() {
 		BeginDrawing();
 			ClearBackground({ 0, 10, 0 });
 			DrawText("[WASD] para controlar al jugador.", 10, 10, 20, RAYWHITE);
 			DrawText("[Q] para entrar en modo editor.", 10, 40, 20, RAYWHITE);
 			DrawText("[ESC] para cerrar el programa.", 10, 70, 20, RAYWHITE);
-			Level::draw();
+			Level::Draw();
 
-			Level::checkCollisions(player.position) ? DrawCircleV(player.position, player.size, GREEN) : DrawCircleV(player.position, player.size, RED);
+			Level::CheckCollisions(player.position) ? DrawCircleV(player.position, player.size, GREEN) : DrawCircleV(player.position, player.size, RED);
 		EndDrawing();
 	}
 
-	void handleControls() {
+	void HandleControls() {
 		if (IsKeyPressed(KEY_Q)) {
-			Program::setState(Program::ProgramState::DRAW);
+			Program::SetState(Program::ProgramState::DRAW);
 		}
 		// Player Controls
 		if (IsKeyDown(KEY_W)) {
@@ -51,13 +51,13 @@ namespace Game {
 	}
 
 	// Public
-	void update() {
-		handleControls();
+	void Update() {
+		HandleControls();
 
-		draw();
+		Draw();
 	}
 
-	void init() {
+	void Init() {
 		DisableCursor();
 		player.position = { (GetScreenWidth() * .5f), (GetScreenHeight() * .5f) };
 		player.speed = 250.0f;

@@ -14,34 +14,34 @@ namespace Program {
 
 	static ProgramState currentState;
 
-	static void initState(ProgramState state);
-	static void update();
-	static void uninit();
-	static void init();
+	static void InitState(ProgramState state);
+	static void Update();
+	static void Uninit();
+	static void Init();
 
-	void initState(ProgramState state) {
+	void InitState(ProgramState state) {
 		switch (state)
 		{
 		case ProgramState::DRAW:
-			Editor::init();
+			Editor::Init();
 			break;
 		case ProgramState::PLAY:
-			Game::init();
+			Game::Init();
 			break;
 		default:
 			break;
 		}
 	}
 
-	void update() {
+	void Update() {
 		while (!WindowShouldClose()) {
 			switch (currentState)
 			{
 			case ProgramState::DRAW:
-				Editor::update();
+				Editor::Update();
 				break;
 			case ProgramState::PLAY:
-				Game::update();
+				Game::Update();
 				break;
 			default:
 				break;
@@ -49,30 +49,30 @@ namespace Program {
 		}
 	}
 
-	void uninit() {
+	void Uninit() {
 		CloseWindow();
 	}
 
-	void init() {
+	void Init() {
 		programShouldClose = false;
 		InitWindow(static_cast<int>(screenWidth), static_cast<int>(screenHeight), TextFormat("Algebra TP1 (Campos - Molina Jalabert - Camacho - Salazar)"));
 		SetTargetFPS(60);
-		setState(ProgramState::DRAW);
+		SetState(ProgramState::DRAW);
 	}
 
 	// Public
-	void setState(ProgramState state) {
-		initState(state);
+	void SetState(ProgramState state) {
+		InitState(state);
 		currentState = state;
 	}
 
-	void close() {
+	void Close() {
 		programShouldClose = true;
 	}
 
-	void start() {
-		init();
-		update();
-		uninit();
+	void Start() {
+		Init();
+		Update();
+		Uninit();
 	}
 }

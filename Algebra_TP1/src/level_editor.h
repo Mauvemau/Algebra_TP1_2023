@@ -2,6 +2,6 @@
 
 namespace Editor {
 
-	void update();
-	void init();
+	void Update();
+	void Init();
 }

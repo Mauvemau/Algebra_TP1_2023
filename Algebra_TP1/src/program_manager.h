@@ -6,7 +6,7 @@ namespace Program {
 		PLAY
 	};
 
-	void setState(ProgramState state);
-	void close();
-	void start();
+	void SetState(ProgramState state);
+	void Close();
+	void Start();
 }

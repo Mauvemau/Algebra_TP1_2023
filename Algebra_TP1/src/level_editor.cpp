@@ -11,15 +11,15 @@ using namespace std;
 
 namespace Editor {
 
-    vector<Vector2> currentShape; // Almacenamiento de líneas dibujadas
+    vector<Vector2> currentShape; // Almacenamiento de lï¿½neas dibujadas
 
-    static void draw();
-    static void handleControls();
+    static void Draw();
+    static void HandleControls();
 
-    void draw() {
+    void Draw() {
         BeginDrawing();
             ClearBackground(BLACK);
-            Level::draw();
+            Level::Draw();
             DrawText("[Click Derecho] para colocar un vertice.", 10, 10, 20, RAYWHITE);
             DrawText("[Click Izquierdo] para finalizar la forma.", 10, 40, 20, RAYWHITE);
             DrawText("[B] para borrar la forma actual.", 10, 70, 20, RAYWHITE);
@@ -39,13 +39,13 @@ namespace Editor {
         EndDrawing();
     }
 
-    void handleControls() {
+    void HandleControls() {
         if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
             currentShape.push_back(GetMousePosition());
         }
         if (IsMouseButtonPressed(MOUSE_RIGHT_BUTTON)) {
             if (currentShape.size() > 2) {
-                Level::addShape(currentShape);
+                Level::AddShape(currentShape);
                 currentShape.clear();
             }
         }
@@ -53,21 +53,21 @@ namespace Editor {
             currentShape.clear();
         }
         if (IsKeyPressed(KEY_C)) {
-            Level::wipe();
+            Level::Wipe();
         }
         if (IsKeyPressed(KEY_Q)) {
-            Program::setState(Program::ProgramState::PLAY);
+            Program::SetState(Program::ProgramState::PLAY);
         }
     }
 
     // Public
-    void update() {
-        handleControls();
+    void Update() {
+        HandleControls();
 
-        draw();
+        Draw();
     }
 
-    void init() {
+    void Init() {
         currentShape.clear();
         EnableCursor();
     }
