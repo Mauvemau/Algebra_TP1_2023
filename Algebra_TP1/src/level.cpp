@@ -23,7 +23,7 @@ namespace Level {
 	bool CheckCollisions(Vector2 playerPosition) {
 		bool colliding = false;
 		for (int i = 0; i < static_cast<int>(shapes.size()); i++) {
-			if (Collision::PointInPolygonWinding(playerPosition, shapes[i])) {
+			if (Collision::PointInPolygon(playerPosition, shapes[i])) {
 				colliding = true;
 			}
 		}
